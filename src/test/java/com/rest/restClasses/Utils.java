@@ -17,21 +17,20 @@ import java.util.Properties;
 public class Utils {
 
 
-    static RequestSpecification req;
+    static RequestSpecification requestSpecification;
     static String token = "526ce8f2c9d384c01e014af15b21576aab46d1d1e02a2fcb6052431e98660456";
         public static RequestSpecification requestSpecificationBuild() throws IOException
         {
 
-            if(req==null)
+            if(requestSpecification==null)
             {
                 PrintStream log =new PrintStream(new FileOutputStream("logging.txt"));
-                req=new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl")).addHeader("Authorization", "Bearer " + token)
+                requestSpecification=new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl")).addHeader("Authorization", "Bearer " + token)
                         .addFilter(RequestLoggingFilter.logRequestTo(log))
                         .addFilter(ResponseLoggingFilter.logResponseTo(log))
                         .setContentType(ContentType.JSON).build();
-                return req;
-            }
-            return req;
+                return requestSpecification;
+            }return requestSpecification;
 
         }
 
@@ -41,11 +40,7 @@ public class Utils {
             FileInputStream fis =new FileInputStream("src/test/java/com/rest/global.properties");
             prop.load(fis);
             return prop.getProperty(key);
-
-
-
         }
-
 
         public static String getJsonPath(Response response, String key)
         {

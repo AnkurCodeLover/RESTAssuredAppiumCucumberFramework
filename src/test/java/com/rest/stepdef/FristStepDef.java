@@ -53,12 +53,10 @@ public class FristStepDef {
                 }
                 else if(method.equalsIgnoreCase("GET")){
                         String getUrl = resourceAPI.getResource() + user_id;
-                        System.out.println("Details of URL >>"+getUrl);
                         response =requestSpecification.when().get(getUrl);
 
                 } else if(method.equalsIgnoreCase("DELETE")) {
                         String getUrl = resourceAPI.getResource() + user_id;
-                        System.out.println("Details of URL >>"+getUrl);
                         response =requestSpecification.when().delete(getUrl);
                 }
         }
@@ -80,7 +78,6 @@ public class FristStepDef {
 
                 // requestSpec
                 user_id=getJsonPath(response,"id");
-                System.out.println("User Id>> "+user_id);
                 requestSpecification=given().spec(requestSpecificationBuild());
                 user_calls_with_http_request(resource,"GET");
                 String actualName=getJsonPath(response,"name");

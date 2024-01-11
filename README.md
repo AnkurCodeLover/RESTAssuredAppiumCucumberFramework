@@ -39,6 +39,13 @@ RESTAssuredAppiumCucumberFramework - Appium and REST Assured test automation fra
 - Once the tests are completed one can view the test run status in the below folder for RestAssured .  Folder : \target\RestAPI\cucumber
 
     
+## Important Locations
+#### Feature File Location : src/test/resources
+#### RestAssured Test Location : src/test/java/com/rest
+#### RestAssured TestNG XML Location : src/test/resources/restAssuredRun.xml
+#### Appium Test Location : src/test/java/com/appium
+#### Appium TestNG XML Location : src/test/resources/mobileRun.xml
+
 ## Running Tests
 
 To run tests, run the following command
