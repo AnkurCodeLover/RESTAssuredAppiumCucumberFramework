@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <test name="RestTest">
+        <classes>
+            <class name="com.rest.runner.RestTestRunner">
+                <parameter name="featureFilePath" value="src/test/resources/Rest/RestAssuredTests.feature"/>
+            </class>
+        </classes>
+    </test>
+</suite>
