@@ -28,4 +28,4 @@ jobs:
   dependsOn: Test
   steps:
   - script: echo 'Deploying the application'
-    displayName: 'Deploy Step'
+    displayName: 'Deploy Steps'
