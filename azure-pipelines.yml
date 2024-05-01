@@ -11,11 +11,33 @@ pool:
 
 
 stages:
-  - stage: stageA
+  - stage: BuildStage
     displayName: "This is Stage A"
     jobs:
-      - job: A
-  - stage: stageB
-    displayName: "This is Stage A"
+      - job: Build
+        displayName: 'Build Job'
+        steps:
+          - script: echo 'Building the application'
+            displayName: 'Build Step'
+
+  - stage: TestStage
+    displayName: "This is Test Job"
+    dependsOn: BuildStage
     jobs:
-      - job: B
+      - job: Test
+        displayName: 'Test job'
+        steps:
+        - script: echo 'Building the application'
+          displayName: 'Running Tests'
+
+  - stage: DeployStage
+    displayName: 'Deploy Job'
+    dependsOn: TestStage
+    jobs:
+      - job: Deploy
+        displayName: 'Deploy job'
+        
+        steps:
+        - script: echo 'Deploying the application'
+          displayName: 'Deploying Build'
+          
