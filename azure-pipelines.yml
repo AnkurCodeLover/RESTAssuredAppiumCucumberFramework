@@ -19,7 +19,6 @@ stages:
         steps:
           - script: echo 'Building the application'
             displayName: 'Build Step'
-
   - stage: TestStage
     displayName: "This is Test Job"
     dependsOn: BuildStage
@@ -29,14 +28,12 @@ stages:
         steps:
         - script: echo 'Building the application'
           displayName: 'Running Tests'
-
   - stage: DeployStage
     displayName: 'Deploy Job'
     dependsOn: TestStage
     jobs:
       - job: Deploy
         displayName: 'Deploy job'
-        
         steps:
         - script: echo 'Deploying the application'
           displayName: 'Deploying Build'
