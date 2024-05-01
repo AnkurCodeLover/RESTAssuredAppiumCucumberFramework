@@ -9,23 +9,13 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-jobs:
-- job: Build
-  displayName: 'Build Job'
-  steps:
-  - script: echo 'Building the application'
-    displayName: 'Build Step'
 
-- job: Test
-  displayName: 'Test Job'
-  dependsOn: Build
-  steps:
-  - script: echo 'Running tests'
-    displayName: 'Test Step'
-
-- job: Deploy
-  displayName: 'Deploy Job'
-  dependsOn: Test
-  steps:
-  - script: echo 'Deploying the application'
-    displayName: 'Deploy Steps'
+stages:
+  - stage: stageA
+    displayName: "This is Stage A"
+    jobs:
+      - job: A
+  - stage: stageB
+    displayName: "This is Stage A"
+    jobs:
+      - job: B
